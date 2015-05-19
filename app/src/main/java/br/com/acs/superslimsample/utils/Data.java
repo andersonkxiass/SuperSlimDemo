@@ -12,54 +12,46 @@ import br.com.acs.superslimsample.model.User;
 
 public class Data {
 
-    int headerCount = 0;
-    int sectionFirstPosition = 0;
-    int id = -1;
-
     public  List<AdapterBaseRow> getData(){
+
+        int firstSectionPosition = 0; //Header index
 
         List<AdapterBaseRow> adapterBaseRows = new ArrayList<>();
 
-        //Update indexes
-        updateHeaderIndex(0);
-
         //Header
-        adapterBaseRows.add(new AdapterRowHeader(new User("Anderson Silva"), sectionFirstPosition, id));
+        adapterBaseRows.add(new AdapterRowHeader(new User("Google I/O 2013"), firstSectionPosition));
 
         //items
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picturea_1), sectionFirstPosition, id));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), sectionFirstPosition, id));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_4), sectionFirstPosition, id));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_5), sectionFirstPosition, id));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_2), sectionFirstPosition, id));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picturea_1), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_4), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_5), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_2), firstSectionPosition));
 
-        //Update indexes
-        updateHeaderIndex(5); //to identify a header
+        firstSectionPosition = 6; //Header index
 
         //Header
-        adapterBaseRows.add(new AdapterRowHeader(new User("Josh"), sectionFirstPosition, id));
+        adapterBaseRows.add(new AdapterRowHeader(new User("Google I/O 2014"), firstSectionPosition));
 
         //items
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), sectionFirstPosition, id));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_5), sectionFirstPosition, id));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_4), sectionFirstPosition, id));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), sectionFirstPosition, id));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_2), sectionFirstPosition, id));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_5), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_4), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_2), firstSectionPosition));
 
-        resetHeaderIndex();
+        firstSectionPosition = 12; //Header index
+
+        //Header
+        adapterBaseRows.add(new AdapterRowHeader(new User("Google I/O 2015"), firstSectionPosition));
+
+        //items
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_5), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_4), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_2), firstSectionPosition));
 
         return adapterBaseRows;
-    }
-
-    private void updateHeaderIndex(int i) {
-        //UPDATE HEADER
-        sectionFirstPosition = i + headerCount;
-        headerCount  += 1;
-        id++;
-    }
-
-    private void resetHeaderIndex(){
-        headerCount = 0;
-        sectionFirstPosition = 0;
     }
 }

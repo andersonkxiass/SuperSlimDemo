@@ -4,8 +4,8 @@ public class AdapterRowPicture extends AdapterBaseRow {
 
     Picture image;
 
-    public AdapterRowPicture(Picture image, int sectionFirstPosition, int id) {
-        super( sectionFirstPosition, id);
+    public AdapterRowPicture(Picture image, int firstSectionPosition) {
+        super(firstSectionPosition);
         this.image = image;
     }
 

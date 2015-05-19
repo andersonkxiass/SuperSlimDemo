@@ -1,6 +1,5 @@
 package br.com.acs.superslimsample.adapters;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +22,6 @@ import butterknife.InjectView;
 import butterknife.Optional;
 
 public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.TimelineViewHolder> {
-
-    private Context mContext;
 
     public class TimelineViewHolder extends RecyclerView.ViewHolder{
 
@@ -52,13 +49,10 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
     private static final int VIEW_TYPE_HEADER = 0x01;
     private static final int VIEW_TYPE_CONTENT = 0x00;
 
-
     @Override
     public TimelineViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View mRoot;
-
-        mContext = parent.getContext();
 
         if (viewType == VIEW_TYPE_HEADER) {
             mRoot = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_insta_header, parent, false);
