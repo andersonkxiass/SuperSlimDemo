@@ -4,16 +4,9 @@ public class AdapterRowPicture extends AdapterBaseRow {
 
     Picture image;
 
-    public int indexHeader;
-
-    public AdapterRowPicture(Picture image, int sectionFirstPosition, int id,  int indexHeader) {
+    public AdapterRowPicture(Picture image, int sectionFirstPosition, int id) {
         super( sectionFirstPosition, id);
         this.image = image;
-        this.indexHeader = indexHeader;
-    }
-
-    public int getIndexHeader() {
-        return indexHeader;
     }
 
     public Picture getImage() {

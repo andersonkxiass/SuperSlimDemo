@@ -27,11 +27,11 @@ public class Data {
         adapterBaseRows.add(new AdapterRowHeader(new User("Anderson Silva"), sectionFirstPosition, id));
 
         //items
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picturea_1), sectionFirstPosition, id, 0));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), sectionFirstPosition, id, 0));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_4), sectionFirstPosition, id, 0));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_5), sectionFirstPosition, id, 0));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_2), sectionFirstPosition, id, 0));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picturea_1), sectionFirstPosition, id));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), sectionFirstPosition, id));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_4), sectionFirstPosition, id));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_5), sectionFirstPosition, id));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_2), sectionFirstPosition, id));
 
         //Update indexes
         updateHeaderIndex(5); //to identify a header
@@ -40,11 +40,11 @@ public class Data {
         adapterBaseRows.add(new AdapterRowHeader(new User("Josh"), sectionFirstPosition, id));
 
         //items
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), sectionFirstPosition, id, 5));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_5), sectionFirstPosition, id, 5));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_4), sectionFirstPosition, id, 5));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), sectionFirstPosition, id, 5));
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_2), sectionFirstPosition, id, 5));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), sectionFirstPosition, id));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_5), sectionFirstPosition, id));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_4), sectionFirstPosition, id));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), sectionFirstPosition, id));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_2), sectionFirstPosition, id));
 
         resetHeaderIndex();
 
