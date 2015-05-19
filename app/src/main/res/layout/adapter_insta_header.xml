@@ -8,7 +8,6 @@
 	android:layout_margin="1dp"
 	app:slm_headerDisplay="inline|sticky"
 	app:slm_isHeader="true"
-	app:slm_section_sectionManager="linear"
 	android:background="#ffffff"
 	android:orientation="horizontal"
 	android:gravity="center_vertical">

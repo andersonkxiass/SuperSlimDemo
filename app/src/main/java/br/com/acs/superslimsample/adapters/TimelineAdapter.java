@@ -1,5 +1,6 @@
 package br.com.acs.superslimsample.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tonicartos.superslim.GridSLM;
 import com.tonicartos.superslim.LayoutManager;
 import com.tonicartos.superslim.LinearSLM;
 
@@ -22,6 +24,8 @@ import butterknife.InjectView;
 import butterknife.Optional;
 
 public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.TimelineViewHolder> {
+
+    private Context mContext;
 
     public class TimelineViewHolder extends RecyclerView.ViewHolder{
 
@@ -49,10 +53,15 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
     private static final int VIEW_TYPE_HEADER = 0x01;
     private static final int VIEW_TYPE_CONTENT = 0x00;
 
+    private static final int LINEAR = 0;
+    private int sectionManager = 1;
+
     @Override
     public TimelineViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View mRoot;
+
+        mContext = parent.getContext();
 
         if (viewType == VIEW_TYPE_HEADER) {
             mRoot = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_insta_header, parent, false);
@@ -75,8 +84,18 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
 
         final View itemView = holder.itemView;
 
-        final LayoutManager.LayoutParams params = (LayoutManager.LayoutParams) itemView.getLayoutParams();
-        params.setSlm(LinearSLM.ID);
+        LayoutManager.LayoutParams params;
+
+        if(sectionManager != LINEAR){
+            params = GridSLM.LayoutParams.from(itemView.getLayoutParams());
+            params.setSlm(GridSLM.ID);
+            ((GridSLM.LayoutParams)params ).setNumColumns(3);
+            ((GridSLM.LayoutParams)params ).setColumnWidth(R.dimen.column_width);
+
+        }else {
+            params = (LayoutManager.LayoutParams) itemView.getLayoutParams();
+            params.setSlm(LinearSLM.ID);
+        }
 
         if(wrapper instanceof AdapterRowHeader){
 
@@ -94,6 +113,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
         }
 
         params.setFirstPosition(wrapper.sectionFirstPosition);
+        itemView.setLayoutParams(params);
     }
 
     @Override

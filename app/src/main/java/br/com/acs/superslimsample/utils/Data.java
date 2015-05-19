@@ -22,7 +22,7 @@ public class Data {
         adapterBaseRows.add(new AdapterRowHeader(new User("Google I/O 2013"), firstSectionPosition));
 
         //items
-        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picturea_1), firstSectionPosition));
+        adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_1), firstSectionPosition));
         adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_3), firstSectionPosition));
         adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_4), firstSectionPosition));
         adapterBaseRows.add(new AdapterRowPicture(new Picture(R.drawable.picture_5), firstSectionPosition));

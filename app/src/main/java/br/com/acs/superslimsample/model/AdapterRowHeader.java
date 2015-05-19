@@ -1,6 +1,5 @@
 package br.com.acs.superslimsample.model;
 
-
 public class AdapterRowHeader extends AdapterBaseRow {
 
     private User user;
