@@ -25,8 +25,6 @@ import butterknife.Optional;
 
 public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.TimelineViewHolder> {
 
-    private Context mContext;
-
     public class TimelineViewHolder extends RecyclerView.ViewHolder{
 
         @InjectView(R.id.txt_header)
@@ -46,15 +44,20 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
 
     List<AdapterBaseRow> adapterBaseRows = new ArrayList<>();
 
-    public TimelineAdapter(List<AdapterBaseRow> adapterBaseRows ){
-        this.adapterBaseRows = adapterBaseRows;
-    }
-
     private static final int VIEW_TYPE_HEADER = 0x01;
     private static final int VIEW_TYPE_CONTENT = 0x00;
 
     private static final int LINEAR = 0;
-    private int sectionManager = 1;
+    private int sectionManager = 0;
+    private Context mContext;
+
+    public TimelineAdapter(List<AdapterBaseRow> adapterBaseRows ){
+        this.adapterBaseRows = adapterBaseRows;
+    }
+
+    public void setSectionManager(int sectionManager){
+        this.sectionManager = sectionManager;
+    }
 
     @Override
     public TimelineViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -86,15 +89,24 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
 
         LayoutManager.LayoutParams params;
 
-        if(sectionManager != LINEAR){
-            params = GridSLM.LayoutParams.from(itemView.getLayoutParams());
-            params.setSlm(GridSLM.ID);
-            ((GridSLM.LayoutParams)params ).setNumColumns(3);
-            ((GridSLM.LayoutParams)params ).setColumnWidth(R.dimen.column_width);
+        float imageHeight;
 
-        }else {
+        if(sectionManager == LINEAR){
+
+            imageHeight = mContext.getResources().getDimension(R.dimen.list_item_height);
+
             params = (LayoutManager.LayoutParams) itemView.getLayoutParams();
             params.setSlm(LinearSLM.ID);
+
+        }else {
+
+            imageHeight = mContext.getResources().getDimension(R.dimen.grid_item_height);
+
+            params = GridSLM.LayoutParams.from(itemView.getLayoutParams());
+            params.setSlm(GridSLM.ID);
+
+            ((GridSLM.LayoutParams)params ).setNumColumns(3);
+            ((GridSLM.LayoutParams)params ).setColumnWidth(R.dimen.column_width);
         }
 
         if(wrapper instanceof AdapterRowHeader){
@@ -103,12 +115,12 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
 
             holder.header.setText("" + adapterRowHeader.getUser().getName());
 
-            params.headerEndMarginIsAuto = false;
-            params.headerStartMarginIsAuto = false;
-
         } else {
 
             AdapterRowPicture adapterRowPicture = (AdapterRowPicture) wrapper;
+
+            holder.image.getLayoutParams().height = (int)imageHeight;
+
             holder.image.setImageResource(adapterRowPicture.getImage().getPictureResource());
         }
 

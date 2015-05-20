@@ -3,4 +3,6 @@
 
 	<string name="hello_world">Hello world!</string>
 	<string name="action_settings">Settings</string>
+	<string name="action_mode_grid">Show List</string>
+	<string name="action_mode_list">Show Grid</string>
 </resources>

@@ -4,4 +4,7 @@
 	<dimen name="activity_vertical_margin">16dp</dimen>
 
 	<dimen name="column_width">100dp</dimen>
+
+	<dimen name="list_item_height">200dp</dimen>
+	<dimen name="grid_item_height">100dp</dimen>
 </resources>

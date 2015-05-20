@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private Toolbar mToolbar;
+    private TimelineAdapter timelineAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         Data data = new Data();
 
-        TimelineAdapter timelineAdapter = new TimelineAdapter(data.getData());
+        timelineAdapter = new TimelineAdapter(data.getData());
         mRecyclerView.setAdapter(timelineAdapter);
     }
 
@@ -51,7 +52,17 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_mode_grid) {
+
+            timelineAdapter.setSectionManager(0);
+            timelineAdapter.notifyDataSetChanged();
+            return true;
+        }
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_mode_list) {
+            timelineAdapter.setSectionManager(1);
+            timelineAdapter.notifyDataSetChanged();
             return true;
         }
 
